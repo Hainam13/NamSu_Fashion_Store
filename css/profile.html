@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hồ sơ cá nhân - Fashion Store</title>
+  <link rel="stylesheet" href="css/style.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  <header>
+    <h1>Fashion Store</h1>
+    <nav>
+      <a href="index.html">Trang chủ</a>
+      <a href="contact.html">Liên hệ</a>
+      <a href="cart.html">Giỏ hàng</a>
+      <a href="profile.html" class="active">Hồ sơ</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Hồ sơ người dùng</h2>
+    <div class="profile-info">
+      <p><strong>Họ và tên:</strong> Nguyễn Văn A</p>
+      <p><strong>Email:</strong> nguyenvana@example.com</p>
+      <p><strong>Số điện thoại:</strong> 0901234567</p>
+      <p><strong>Địa chỉ:</strong> 123 Lê Lợi, Quận 1, TP.HCM</p>
+    </div>
+
+    <button onclick="alert('Chức năng này sẽ được cập nhật sau')">Chỉnh sửa hồ sơ</button>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Fashion Store</p>
+  </footer>
+
+<body onload="loadProfile()">
+  <h2>Thông tin người dùng</h2>
+  <p id="info"></p>
+  <a href="index.html">⬅️ Quay lại trang chính</a>
+
+<script>
+function loadProfile() {
+  const user = JSON.parse(localStorage.getItem("user"));
+  if (!user || localStorage.getItem("isLoggedIn") !== "true") {
+    alert("Bạn chưa đăng nhập!");
+    window.location.href = "login.html";
+  } else {
+    document.getElementById("info").innerText =
+      `👤 Họ tên: ${user.fullname}\n📧 Email: ${user.email}`;
+  }
+}
+</script>
+</body>
+
+</body>
+</html>
