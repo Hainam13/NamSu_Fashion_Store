@@ -4,21 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Đăng ký - Fashion Store</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/register.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <h1>Fashion Store</h1>
-    <nav>
-      <a href="index.html">Trang chủ</a>
-      <a href="contact.html">Liên hệ</a>
-      <a href="login.html">Đăng nhập</a>
-      <a href="register.html">Đăng ký</a>
-    </nav>
-  </header>
+  
+
 
 <main>
   <h2>Đăng ký tài khoản</h2>
@@ -35,23 +28,44 @@
 
     <div class="form-group">
       <label for="password">Mật khẩu:</label>
-      <input type="password" id="password" name="password" required />
+      <div class="password-container">
+        <input type="password" id="password" name="password" required />
+        <button type="button" class="toggle-password" onclick="togglePassword('password')" aria-label="Hiện/ẩn mật khẩu">
+          <svg class="eye-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+            <circle cx="12" cy="12" r="3"></circle>
+          </svg>
+        </button>
+      </div>
     </div>
 
     <div class="form-group">
       <label for="confirmPassword">Xác nhận mật khẩu:</label>
-      <input type="password" id="confirmPassword" name="confirmPassword" required />
+      <div class="password-container">
+        <input type="password" id="confirmPassword" name="confirmPassword" required />
+        <button type="button" class="toggle-password" onclick="togglePassword('confirmPassword')" aria-label="Hiện/ẩn mật khẩu">
+          <svg class="eye-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+            <circle cx="12" cy="12" r="3"></circle>
+          </svg>
+        </button>
+      </div>
     </div>
 
     <button type="submit">Đăng ký</button>
     <p id="registerMessage"></p>
+    
+    <p style="text-align: center; margin-top: 20px; color: #666;">
+      Đã có tài khoản? 
+      <a href="login.html" style="color: #1a73e8; text-decoration: none; font-weight: bold;">
+        Đăng nhập ngay
+      </a>
+    </p>
   </form>
 </main>
 
 
-  <footer>
-    <p>&copy; 2025 Fashion Store</p>
-  </footer>
+  
 
   <script>
     function handleRegister() {

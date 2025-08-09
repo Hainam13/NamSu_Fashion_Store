@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Giỏ hàng - Fashion Store</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/cart.css" />
   <style>
     table {
       width: 100%;
@@ -60,19 +60,17 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Áo thun thời trang</td>
-          <td>200.000đ</td>
-          <td><input type="number" value="1" min="1" onchange="updateTotal()"/></td>
-          <td class="subtotal">200000</td>
-          <td><button class="remove" onclick="removeItem(this)">Xóa</button></td>
-        </tr>
-        <!-- Có thể thêm nhiều dòng tương tự ở đây -->
+        <!-- Cart items will be dynamically loaded here -->
       </tbody>
     </table>
 
     <div class="total">
-      <strong>Tổng cộng:</strong> <span id="total">200000</span> đ
+      <strong>Tổng cộng:</strong> <span id="total">0</span> đ
+    </div>
+    
+    <div style="margin-top: 20px;">
+      <button onclick="clearCart()" style="background: #f44336; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer;">Xóa toàn bộ giỏ hàng</button>
+      <button onclick="window.location.href='index.html'" style="background: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; margin-left: 10px;">Tiếp tục mua sắm</button>
     </div>
   </main>
 
@@ -80,24 +78,6 @@
     <p>&copy; 2025 Fashion Store</p>
   </footer>
 
-  <script>
-    function updateTotal() {
-      let rows = document.querySelectorAll("#cart-table tbody tr");
-      let total = 0;
-      rows.forEach(row => {
-        let price = 200000; // Giá cố định (mô phỏng)
-        let qty = row.querySelector("input").value;
-        let subtotal = price * qty;
-        row.querySelector(".subtotal").textContent = subtotal;
-        total += subtotal;
-      });
-      document.getElementById("total").textContent = total;
-    }
-
-    function removeItem(btn) {
-      btn.closest("tr").remove();
-      updateTotal();
-    }
-  </script>
+  <script src="js/cart.js"></script>
 </body>
 </html>
